@@ -1,4 +1,7 @@
 # Activity
+
+ [![Build Status](https://travis-ci.com/toancong/activity.svg?branch=master)](https://travis-ci.com/toancong/activity)
+
 a laravel package follow [activity stream spec](https://www.w3.org/TR/activitystreams-core/) and [jsonapi](https://jsonapi.org/)
 
 
@@ -56,7 +59,7 @@ Comming soon
 
 ## Contribute
 
-PR are welcome. Please open an issue first and submit with a good commit messages. Thanks
+PR are welcome. Please open an issue first and submit PR with a good commit message. Thanks
 
 ### Dev
 
