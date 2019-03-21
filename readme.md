@@ -8,7 +8,7 @@ a laravel package follow [activity stream spec](https://www.w3.org/TR/activityst
 ## Install
 
 ```
-composer require bean/activity
+composer require beanbean/activity
 ```
 
 ## Usage
