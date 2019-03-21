@@ -1,0 +1,20 @@
+version: '3'
+services:
+  test:
+    image: toancong/phpup:2
+    depends_on:
+      - dbtest
+    volumes:
+      - .:/var/www/app
+      # this mount will disable xdebug which enabled for dev in default
+      - ./storage/tools/empty:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    working_dir: /var/www/app
+    entrypoint: ["./storage/tools/wait-for-it.sh", "dbtest:3306", "-s", "--timeout=30", "--", "vendor/bin/phpunit"]
+
+  dbtest:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbtest
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: user123

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+        bootstrap="vendor/autoload.php"
+        backupStaticAttributes="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        stopOnFailure="true">
+    <testsuites>
+        <testsuite name="Services">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+        <log type="coverage-html" target="tests/build/coverage" lowUpperBound="35" highLowerBound="80"/>
+        <log type="coverage-clover" target="tests/build/logs/clover.xml"/>
+    </logging>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:JdTtXGjPbExkqstViXgkCqZZiMvwP+kmJumOZs1JenY="/>
+        <env name="APP_DEBUG" value="false"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="MAIL_DRIVER" value="array"/>
+        <env name="LOG_CHANNEL" value="syslog"/>
+        <env name="DB_HOST" value="dbtest"/>
+        <env name="DB_DATABASE" value="dbtest"/>
+        <env name="DB_USERNAME" value="dbuser"/>
+        <env name="DB_PASSWORD" value="user123"/>
+        <env name="BRAINTREE_MERCHANT_ID" value=""/>
+        <env name="BRAINTREE_PUBLIC_KEY" value=""/>
+        <env name="BRAINTREE_PRIVATE_KEY" value=""/>
+        <env name="DEEPLINKING_SECRET" value=""/>
+        <env name="BROADCAST_DRIVER" value="null"/>
+        <!-- <env name="DB_PERSISTENT" value="true"/> -->
+    </php>
+</phpunit>
