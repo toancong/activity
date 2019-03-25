@@ -4,6 +4,13 @@
 
 a laravel package follow [activity stream spec](https://www.w3.org/TR/activitystreams-core/) and [jsonapi](https://jsonapi.org/)
 
+<img src="feed.png" alt="feed" height="250"/>
+<img src="timeline.png" alt="timeline" height="250"/>
+<img src="order-track.png" alt="order-track" height="250"/>
+
+## Examples
+
+https://github.com/toancong/activity-demo
 
 ## Install
 
@@ -42,6 +49,16 @@ app('activity')->create([
 
 // when user unfavorite a product
 app('activity')->delete($user, 'favorite', $product);
+
+//browse to display
+$activities = app('activity')->browse([
+    'target_id' => (string)$user->id,
+    'type'      => 'favorite',
+], [
+    'page' => [
+        'size' => 50,
+    ]
+]);
 ```
 
 ### Integrate with API
@@ -52,7 +69,7 @@ Comming soon
 
 - [x] Activity service
 - [ ] BREAD api
-- [ ] UI in-app notification, activity
+- [x] UI in-app notification, activity
 - [ ] UI theme support
 - [ ] Real-time activity
 - [ ] Horizontal Partitioning

@@ -14,9 +14,9 @@ class ActivityService
         $this->bread = $bread;
     }
 
-    public function browse($filter = [])
+    public function browse($filter = [], $options = [])
     {
-        $activities = $this->bread->browse($filter);
+        $activities = $this->bread->browse($filter, $options);
         return $activities;
     }
 
